@@ -52,3 +52,11 @@ export const postBlog = (req, res) => {
 		});
 	}
 };
+
+export const countBlog = (req, res) => {
+	const q = "SELECT COUNT(*) FROM blog";
+	db.query(q, [], (err, data) => {
+		if (err) return res.send(err);
+		return res.status(200).json(data);
+	});
+};
