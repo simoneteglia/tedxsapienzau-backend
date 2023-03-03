@@ -26,6 +26,15 @@ export const getBlogID = (req, res) => {
 	});
 };
 
+export const countBlog = (req, res) => {
+	const q = "SELECT COUNT(*) AS posts FROM blog";
+	db.query(q, [], (err, data) => {
+		if (err) return res.send(err);
+		console.log(data);
+		return res.status(200).json(data);
+	});
+};
+
 export const postBlog = (req, res) => {
 	const bearerToken = req.headers["authorization"];
 	if (bearerToken) {
@@ -51,12 +60,4 @@ export const postBlog = (req, res) => {
 			}
 		});
 	}
-};
-
-export const countBlog = (req, res) => {
-	const q = "SELECT COUNT(*) FROM blog";
-	db.query(q, [], (err, data) => {
-		if (err) return res.send(err);
-		return res.status(200).json(data);
-	});
 };

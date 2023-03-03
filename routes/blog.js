@@ -8,9 +8,9 @@ import {
 
 const router = express.Router();
 
-router.get("/", getBlog);
+router.get("/count", countBlog);
 router.get("/:id", getBlogID);
 router.post("/", postBlog);
-router.get("/count", countBlog);
+router.get("/", getBlog);
 
 export default router;
