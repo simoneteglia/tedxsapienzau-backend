@@ -12,8 +12,9 @@ export const postNewsletter = (req, res) => {
 export const getNewsletter = (req, res) => {
   const q = "SELECT * FROM newsletter";
 
-  db.query(q, [], (err, data) => {
+  db.query(q, [req.query.cat], (err, data) => {
     if (err) return res.send(err);
+    console.log("ERROR");
     return res.status(200).json(data);
   });
 };
