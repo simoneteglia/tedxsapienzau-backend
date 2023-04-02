@@ -1,6 +1,6 @@
 import { db } from "../db.js";
 
-export const getTeamYear = (req, res) => {
+export const getTeam = (req, res) => {
 	const q = `SELECT * FROM team${req.params.anno}`;
 	db.query(q, req.params.anno, (err, data) => {
 		if (err) return res.send(err);
