@@ -45,3 +45,17 @@ export const login = (req, res) => {
 export const logout = (req, res) => {
 	res.status(200).json("User has been logged out.");
 };
+
+export const isUserLoggedIn = (req, res) => {
+	var token = req.body.headers["x-auth-token"];
+	token = token.replace(/^"(.+(?="$))"$/, "$1");
+
+	if (!token) return res.status(401).json("No token provided.");
+
+	try {
+		const decoded = jwt.verify(token, JWT_SECRET);
+		res.status(200).json(decoded);
+	} catch (err) {
+		res.status(400).json("Invalid token.");
+	}
+};
