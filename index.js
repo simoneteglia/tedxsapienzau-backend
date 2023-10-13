@@ -11,6 +11,7 @@ import joinRoutes from "./routes/join.js";
 import bodyParser from "body-parser";
 import newsletterRoutes from "./routes/newsletter.js";
 import cookieParser from "cookie-parser";
+import workshopRoutes from "./routes/workshop.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/team", teamRoutes);
 app.use("/auth", authRoutes);
 app.use("/newsletter", newsletterRoutes);
 app.use("/join", joinRoutes);
+app.use("/workshop", workshopRoutes);
 
 app.get("/", (req, res) => {
 	res.json("Hello backend tedxSapienzaU!");
