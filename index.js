@@ -29,7 +29,7 @@ app.use("/join", joinRoutes);
 app.use("/workshop", workshopRoutes);
 
 app.get("/", (req, res) => {
-	res.json("Hello backend tedxSapienzaU!");
+	res.json("Hello backend TEDxSapienzaU!");
 });
 
 app.listen(process.env.PORT || 5500, () => {
